@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<title>ワールズFRVR第一話『荒らしとOwner』</title>
+		<style>
+		.main-img{
+			height : 40vw;
+		}
+		.center , .footer{
+  			display: flex;
+  			justify-content: center;
+		}
+		.footer a , p{
+			margin-left : 3em;
+		}
+        .nex-bac a{
+            display : block;
+            writing-mode : vertical-rl;
+            font-size : 1.5em;
+            text-decoration : none;
+            background-color : lightblue;
+            padding-top : 10vw;
+            padding-bottom : 10vw;
+        }
+        .nex-bac a:hover{
+            background : pink;
+            color : red;
+        }
+		</style>
+	</head>
+	<body>
+		<div class="center">
+            <table>
+             <tr>
+              <td class="nex-bac">
+                    <a href="javascript:next()">
+                            <p>
+                                次のページ    
+                            </p>
+                    </a>
+              </td>
+              <td>
+			  <a href="javascript:next()">
+				       <img src="p1.png" height="50" class="main-img" id="for-js">
+			     </a>
+              </td>
+                 <td class="nex-bac">
+                     <a href="javascript:back()">
+                         <p>
+                            前のページ
+                         </p>
+                     </a>
+                 </td>
+             <tr>
+            </table>
+		</div>
+		<div class="footer">	
+			<a href="https://twitter.com/03yudvalkyrie">
+				<p>
+					ユヅヴァルキリ(作者)のTwitter
+				</p>
+			</a>
+			<a href="https://www.youtube.com/channel/UCAfLPwmgCvERvjmT6CDtlsQ">
+				<p>
+					ユヅヴァルキリ(作者)のYoutube
+				</p>
+			</a>
+			<a href="https://twitter.com/JTCA13">
+				<p>
+					ゆーな//れるっち(webサイト作者)のTwitter
+				</p>
+			</a>
+            <p>
+                ver.1.1r
+            </p>
+		</div>
+		<script>
+			function next(){
+				var srca = document.getElementById('for-js');
+				var srcant = Number( srca.src.charAt( srca.src.length - 5 ) );
+				if( !( 7 == srcant ) ){
+					srca.src = srca.src.slice(0,-5) + (srcant + 1) + '.png'
+				}else{
+					alert('第二話へ続く...');
+				}			
+			}
+            
+            function back(){
+				var srca = document.getElementById('for-js');
+				var srcant = Number( srca.src.charAt( srca.src.length - 5 ) );
+				if( !( 1 == srcant ) ){
+					srca.src = srca.src.slice(0,-5) + (srcant - 1) + '.png'
+				}
+			}
+		</script>
+	</body>
+</html>
