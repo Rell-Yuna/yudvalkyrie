@@ -27,28 +27,36 @@
             background : pink;
             color : red;
         }
+        .hidden{
+            display : none;    
+        }
 		</style>
 	</head>
 	<body>
 		<div class="center">
             <table>
              <tr>
-              <td class="nex-bac">
+                <td colspan="2">
+                    <h2>『ワールズFRVR』第一話『荒らしとOwner』</h2>
+                 </td>   
+             </tr>
+             <tr>
+                <td class="nex-bac">
                     <a href="javascript:next()">
-                            <p>
+                            <p id="nextext">
                                 次のページ    
                             </p>
                     </a>
-              </td>
-              <td>
-			  <a href="javascript:next()">
-				       <img src="p1.png" height="50" class="main-img" id="for-js">
-			     </a>
-              </td>
-                 <td class="nex-bac">
+                </td>
+                <td>
+			         <a href="javascript:next()">
+				        <img src="imgs/vol1/p1.png" height="50" class="main-img" id="for-js">
+			         </a>
+                </td>
+                <td class="nex-bac" id="bac">
                      <a href="javascript:back()">
-                         <p>
-                            前のページ
+                         <p id="bactext">
+                            　　　　　
                          </p>
                      </a>
                  </td>
@@ -72,26 +80,37 @@
 				</p>
 			</a>
             <p>
-                ver.1.1r
+                ver.1.3
             </p>
 		</div>
 		<script>
+            
 			function next(){
+                document.getElementById('bactext').innerHTML = '前のページ';
 				var srca = document.getElementById('for-js');
 				var srcant = Number( srca.src.charAt( srca.src.length - 5 ) );
 				if( !( 7 == srcant ) ){
 					srca.src = srca.src.slice(0,-5) + (srcant + 1) + '.png'
+                    document.getElementById('bac').classList.remove('hidden');
 				}else{
-					alert('第二話へ続く...');
-				}			
+                    window.location.href ='vol2.html' ;
+                }
+                if( 6 == srcant){
+                    document.getElementById('nextext').innerHTML = '第二話';
+				}
 			}
             
             function back(){
+                document.getElementById('nextext').innerHTML = '次のページ';
 				var srca = document.getElementById('for-js');
 				var srcant = Number( srca.src.charAt( srca.src.length - 5 ) );
 				if( !( 1 == srcant ) ){
 					srca.src = srca.src.slice(0,-5) + (srcant - 1) + '.png'
-				}
+				}else{
+                }
+                if( 2 == srcant){
+                    document.getElementById('bactext').innerHTML = '　　　　　';
+                }
 			}
 		</script>
 	</body>
